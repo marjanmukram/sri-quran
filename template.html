@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <style>
@@ -15,7 +17,8 @@
   <title>Sri Quran</title>
 </head>
 
-<body>
+<body style="padding-bottom:300px;">
+  <!-- Navigation bar start -->
   <nav class="navbar navbar-expand-md bg-primary navbar-dark">
     <div class="container-fluid">
       <a href="/" class="navbar-brand">Sri Quran</a>
@@ -42,13 +45,18 @@
             </div>
             <input type="search" name="search" id="search" class="form-control form-control-sm" placeholder="search words..." />
             <div class="input-group-append">
-              <button class="btn btn-sm">Search</button>
+              <button class="btn btn-sm">
+                <i class="fa fa-search"></i>
+              </button>
             </div>
           </div>
         </form>
       </div>
     </div>
   </nav>
+  <!-- Navigation bar end -->
+
+  <!-- Home Page start -->
   <div class="container-fluid">
     <div class="row p-4 py-5 mt-5 bg-light">
       <div class="col-sm-4">
@@ -68,6 +76,134 @@
           மீது பூட்டுப் போடப்பட்டு விட்டனவா?
         </p>
         <div class="text-right py-3">47-24</div>
+      </div>
+    </div>
+  </div>
+  <!-- Home Page end -->
+
+  <!-- Result page start -->
+  <div class="container-fluid">
+    <div class="card my-3">
+      <div class="card-header text-center">
+        <p class="text-info">
+          Your request is <b>'lorem ipsum'</b> in chapter <b>'lorem'[113-190]</b> in <b>'English'</b> quran
+          transelation
+        </p>
+      </div>
+      <div class="navbar bg-light navbar-light navbar-expand-sm">
+        <div class="navbar-nav mr-sm-4 mt-2 dropdown">
+          <button class="btn dropdown-toggle" data-toggle="dropdown">Language</button>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">
+              <i class="far fa-square"></i>
+              Arabic
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-check-square"></i>
+              English
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="far fa-square"></i>
+              Sinhala
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="far fa-square"></i>
+              Tamil
+            </a>
+          </div>
+        </div>
+        <div class="navbar-nav mr-sm-3 mt-2 form-inline">
+          <audio src="./mp3"></audio>
+          <select name="recitator" id="recitator" class="custom-select">
+            <option value="Alafasy" disabled="true" selected="true">Choose recitator</option>
+            <option value="ElGhamidi">Saad El Galmidi</option>
+            <option value="Soudais">Abderrahman Al Soudais</option>
+            <option value="Alafasy">Mishary Rashid Al-Afassy</option>
+            <option value="Al-Ajmy">Ahmad Al-Ajmy</option>
+            <option value="Al-Hussary">Al-Hussary</option>
+            <option value="Basfar">Abdallah Ali Basfar</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card p-2 my-1 border-0 bg-light">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="opt-btns">
+                <i class="fa fa-play"></i>
+                <i class="fa fa-share"></i>
+                <span class="dropdown">
+                  <i class="fa fa-globe" data-toggle="dropdown"></i>
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Arabic
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="fas fa-check-square"></i>
+                      English
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Sinhala
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Tamil
+                    </a>
+                  </div>
+                </span>
+              </div>
+              000-000
+            </div>
+            <div class="col-sm-10">
+              <p class="en">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam
+                quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque,
+                delectus quam.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-2 my-1 border-0 bg-light">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="opt-btns">
+                <i class="fa fa-play"></i>
+                <i class="fa fa-share"></i>
+                <span class="dropdown">
+                  <i class="fa fa-globe" data-toggle="dropdown"></i>
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Arabic
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="fas fa-check-square"></i>
+                      English
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Sinhala
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Tamil
+                    </a>
+                  </div>
+                </span>
+              </div>
+              000-000
+            </div>
+            <div class="col-sm-10">
+              <p class="en">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam
+                quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque,
+                delectus quam.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
