@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <style>
+    .navbar-nav .dropdown-menu {
+      position: absolute !important;
+    }
+    </style>
+  <title>Sri Quran</title>
+</head>
+
+<body style="padding-bottom:300px;">
+  <!-- Navigation bar start -->
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <div class="container-fluid">
+      <a href="/" class="navbar-brand">Sri Quran</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#responsive-navbar" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="responsive-navbar">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="#chapters" class="nav-link">Chapters</a></li>
+          <li class="nav-item"><a href="#advance-search" class="nav-link">Advace Search</a></li>
+        </ul>
+        <form class="navbar-nav form-md-inline ml-auto">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <button type="button" class="btn btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Language</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Arabic</a>
+                <a class="dropdown-item" href="#">English</a>
+                <a class="dropdown-item" href="#">Sinhala</a>
+                <a class="dropdown-item" href="#">Tamil</a>
+              </div>
+            </div>
+            <input type="search" name="search" id="search" class="form-control form-control-sm" placeholder="search words..." />
+            <div class="input-group-append">
+              <button class="btn btn-sm">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- Navigation bar end -->
+
+  <!-- Home Page start -->
+  <div class="container-fluid">
+    <div class="row p-4 py-5 mt-5 bg-light">
+      <div class="col-sm-4">
+        <img src="https://questionsonislam.com/sites/default/files/makale_resimleri/quran-image.jpg" alt="" class="img-fluid" />
+      </div>
+      <div class="col-sm-8">
+        <p>أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ أَمْ عَلَىٰ قُلُوبٍ أَقْفَالُهَا
+        </p>
+        <p>
+          "Do they not then reflect on the Quran? Nay, on the hearts there are locks."
+        </p>
+        <p>
+          ඔවුන් අල්-කුර්ආනය ගැන අවධානය යොමු නොකරන්නේ ද ? නැතහොත් සිත් මත අගුල්ද?
+        </p>
+        <p>
+          மேலும் அவர்கள் இந்தக் குர்ஆனை ஆராய்ந்து பார்க்க வேண்டாமா? அல்லது அவர்கள் இருதயங்கள் (இருக்கின்றனவே) அவற்றின்
+          மீது பூட்டுப் போடப்பட்டு விட்டனவா?
+        </p>
+        <div class="text-right py-3">47-24</div>
+      </div>
+    </div>
+  </div>
+  <!-- Home Page end -->
+
+  <!-- Result page start -->
+  <div class="container-fluid">
+    <div class="card my-3">
+      <div class="card-header text-center">
+        <p class="text-info">
+          Your request is <b>'lorem ipsum'</b> in chapter <b>'lorem'[113-190]</b> in <b>'English'</b> quran
+          transelation
+        </p>
+      </div>
+      <div class="navbar bg-light navbar-light navbar-expand-sm">
+        <div class="navbar-nav mr-sm-4 mt-2 dropdown">
+          <button class="btn dropdown-toggle" data-toggle="dropdown">Language</button>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">
+              <i class="far fa-square"></i>
+              Arabic
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-check-square"></i>
+              English
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="far fa-square"></i>
+              Sinhala
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="far fa-square"></i>
+              Tamil
+            </a>
+          </div>
+        </div>
+        <div class="navbar-nav mr-sm-3 mt-2 form-inline">
+          <audio src="./mp3"></audio>
+          <select name="recitator" id="recitator" class="custom-select">
+            <option value="Alafasy" disabled="true" selected="true">Choose recitator</option>
+            <option value="ElGhamidi">Saad El Galmidi</option>
+            <option value="Soudais">Abderrahman Al Soudais</option>
+            <option value="Alafasy">Mishary Rashid Al-Afassy</option>
+            <option value="Al-Ajmy">Ahmad Al-Ajmy</option>
+            <option value="Al-Hussary">Al-Hussary</option>
+            <option value="Basfar">Abdallah Ali Basfar</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card p-2 my-1 border-0 bg-light">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="opt-btns">
+                <i class="fa fa-play"></i>
+                <i class="fa fa-share"></i>
+                <span class="dropdown">
+                  <i class="fa fa-globe" data-toggle="dropdown"></i>
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Arabic
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="fas fa-check-square"></i>
+                      English
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Sinhala
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Tamil
+                    </a>
+                  </div>
+                </span>
+              </div>
+              000-000
+            </div>
+            <div class="col-sm-10">
+              <p class="en">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam
+                quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque,
+                delectus quam.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-2 my-1 border-0 bg-light">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="opt-btns">
+                <i class="fa fa-play"></i>
+                <i class="fa fa-share"></i>
+                <span class="dropdown">
+                  <i class="fa fa-globe" data-toggle="dropdown"></i>
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Arabic
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="fas fa-check-square"></i>
+                      English
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Sinhala
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="far fa-square"></i>
+                      Tamil
+                    </a>
+                  </div>
+                </span>
+              </div>
+              000-000
+            </div>
+            <div class="col-sm-10">
+              <p class="en">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam
+                quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque,
+                delectus quam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
