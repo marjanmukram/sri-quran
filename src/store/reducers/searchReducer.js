@@ -1,4 +1,4 @@
-import { CHANGE_LANG } from '../actions/types';
+import { CHANGE_LANG, CHANGE_SEARCH_TERM } from '../actions/types';
 
 const initState = {
   language: '',
@@ -7,6 +7,8 @@ const initState = {
 
 export default function(state = initState, action) {
   switch (action.type) {
+    case CHANGE_SEARCH_TERM:
+      return { ...state, term: action.payload };
     case CHANGE_LANG:
       return { ...state, language: action.payload };
     default:

@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { changeLang } from '../../store/actions/formActions';
+import { changeLang, changeTerm } from '../../store/actions/formActions';
 
 class SimpleSearchForm extends React.Component {
   state = {
@@ -25,7 +25,7 @@ class SimpleSearchForm extends React.Component {
   };
   render() {
     return (
-      <Form inline onSubmit={e => e.preventDefault()}>
+      <Form onSubmit={e => e.preventDefault()}>
         <InputGroup>
           <InputGroupButtonDropdown
             addonType="prepend"
@@ -50,7 +50,12 @@ class SimpleSearchForm extends React.Component {
               ))}
             </DropdownMenu>
           </InputGroupButtonDropdown>
-          <Input placeholder="Type search words" size="sm" />
+          <Input
+            placeholder="Type search words"
+            bsSize="sm"
+            onChange={e => this.props.changeTerm(e.target.value)}
+            value={this.props.searchTerm}
+          />
           <InputGroupAddon addonType="append">
             <Button type="submit" size="sm" color="default">
               <FontAwesomeIcon icon={faSearch} />
@@ -65,14 +70,16 @@ class SimpleSearchForm extends React.Component {
 function mapStateToProps(state) {
   return {
     langList: state.language.languages,
-    currentLang: state.searchForm.language
+    currentLang: state.searchForm.language,
+    searchTerm: state.searchForm.term
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      changeLang
+      changeLang,
+      changeTerm
     },
     dispatch
   );
