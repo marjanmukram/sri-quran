@@ -7,7 +7,9 @@ import {
   DropdownItem,
   Input
 } from 'reactstrap';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { changeLang } from '../../store/actions/formActions';
 
 class SimpleSearchForm extends React.Component {
   state = {
@@ -33,7 +35,12 @@ class SimpleSearchForm extends React.Component {
           </DropdownToggle>
           <DropdownMenu>
             {this.props.langList.map(ln => (
-              <DropdownItem key={ln.codeName}>{ln.name}</DropdownItem>
+              <DropdownItem
+                onClick={() => this.props.changeLang(ln.codeName)}
+                key={ln.codeName}
+              >
+                {ln.name}
+              </DropdownItem>
             ))}
           </DropdownMenu>
         </InputGroupButtonDropdown>
@@ -50,4 +57,16 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(SimpleSearchForm);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      changeLang
+    },
+    dispatch
+  );
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SimpleSearchForm);
