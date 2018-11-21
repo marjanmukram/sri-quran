@@ -20,7 +20,7 @@ class MainNavbar extends Component {
   };
   render() {
     return (
-      <Navbar color="primary" dark expand="md">
+      <Navbar className="p-1" color="primary" dark expand="md">
         <Container fluid>
           <NavbarBrand href="#">Sri Quran</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />

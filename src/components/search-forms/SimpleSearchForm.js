@@ -24,6 +24,13 @@ class SimpleSearchForm extends React.Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
   render() {
+    const {
+      currentLang,
+      langList,
+      searchTerm,
+      changeLang,
+      changeTerm
+    } = this.props;
     return (
       <Form onSubmit={e => e.preventDefault()}>
         <InputGroup>
@@ -33,16 +40,14 @@ class SimpleSearchForm extends React.Component {
             toggle={this.toggle}
           >
             <DropdownToggle color="default" size="sm" caret>
-              {this.props.currentLang
-                ? this.props.langList.find(
-                    ln => ln.codeName === this.props.currentLang
-                  ).name
+              {currentLang
+                ? langList.find(ln => ln.codeName === currentLang).name
                 : 'Language'}
             </DropdownToggle>
             <DropdownMenu>
-              {this.props.langList.map(ln => (
+              {langList.map(ln => (
                 <DropdownItem
-                  onClick={() => this.props.changeLang(ln.codeName)}
+                  onClick={() => changeLang(ln.codeName)}
                   key={ln.codeName}
                 >
                   {ln.name}
@@ -53,8 +58,8 @@ class SimpleSearchForm extends React.Component {
           <Input
             placeholder="Type search words"
             bsSize="sm"
-            onChange={e => this.props.changeTerm(e.target.value)}
-            value={this.props.searchTerm}
+            onChange={e => changeTerm(e.target.value)}
+            value={searchTerm}
           />
           <InputGroupAddon addonType="append">
             <Button type="submit" size="sm" color="default">
