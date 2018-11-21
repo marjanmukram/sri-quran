@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SimpleSearchForm from './search-forms/SimpleSearchForm';
 import {
   Navbar,
   NavbarBrand,
@@ -19,7 +20,7 @@ class MainNavbar extends Component {
   };
   render() {
     return (
-      <Navbar color="primary" dark expand="md">
+      <Navbar className="p-1" color="primary" dark expand="md">
         <Container fluid>
           <NavbarBrand href="#">Sri Quran</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
@@ -31,6 +32,9 @@ class MainNavbar extends Component {
               <NavItem>
                 <NavLink href="/">Chapters</NavLink>
               </NavItem>
+            </Nav>
+            <Nav navbar className="ml-auto">
+              <SimpleSearchForm />
             </Nav>
           </Collapse>
         </Container>
