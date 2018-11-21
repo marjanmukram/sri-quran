@@ -7,6 +7,7 @@ import {
   DropdownItem,
   Input
 } from 'reactstrap';
+import { connect } from 'react-redux';
 
 class SimpleSearchForm extends React.Component {
   state = {
@@ -27,7 +28,9 @@ class SimpleSearchForm extends React.Component {
             Language
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem>Arabic</DropdownItem>
+            {this.props.langList.map(ln => (
+              <DropdownItem key={ln.codeName}>{ln.name}</DropdownItem>
+            ))}
           </DropdownMenu>
         </InputGroupButtonDropdown>
         <Input placeholder="Type search words" size="sm" />
@@ -36,4 +39,11 @@ class SimpleSearchForm extends React.Component {
   }
 }
 
-export default SimpleSearchForm;
+function mapStateToProps(state) {
+  return {
+    langList: state.language.languages,
+    currentLang: state.language.mainLanguage
+  };
+}
+
+export default connect(mapStateToProps)(SimpleSearchForm);
