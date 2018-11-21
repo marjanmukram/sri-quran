@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SimpleSearchForm from './search-forms/SimpleSearchForm';
 import {
   Navbar,
   NavbarBrand,
@@ -31,6 +32,9 @@ class MainNavbar extends Component {
               <NavItem>
                 <NavLink href="/">Chapters</NavLink>
               </NavItem>
+            </Nav>
+            <Nav navbar className="ml-auto">
+              <SimpleSearchForm />
             </Nav>
           </Collapse>
         </Container>
