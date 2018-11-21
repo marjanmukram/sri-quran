@@ -3,7 +3,11 @@ import Navbar from './components/MainNavbar';
 
 class App extends Component {
   render() {
-    return <div className="App">sri quran</div>;
+    return (
+      <div className="App">
+        <Navbar />
+      </div>
+    );
   }
 }
 
