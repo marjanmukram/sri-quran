@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import SimpleSearchForm from './search-forms/SimpleSearchForm';
+import { NavLink } from 'react-router-dom';
 import {
   Navbar,
-  NavbarBrand,
   NavbarToggler,
   Collapse,
   Nav,
   NavItem,
-  NavLink,
   Container
 } from 'reactstrap';
 
@@ -22,15 +21,21 @@ class MainNavbar extends Component {
     return (
       <Navbar className="p-1" color="primary" dark expand="md">
         <Container fluid>
-          <NavbarBrand href="#">Sri Quran</NavbarBrand>
+          <NavLink className="navbar-brand" to="/">
+            Sri Quran
+          </NavLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="/">Advance Search</NavLink>
+                <NavLink className="nav-link" to="/search">
+                  Advance Search
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/">Chapters</NavLink>
+                <NavLink className="nav-link" to="/chapters">
+                  Chapters
+                </NavLink>
               </NavItem>
             </Nav>
             <Nav navbar className="ml-auto">
