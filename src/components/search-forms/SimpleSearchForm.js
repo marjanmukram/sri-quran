@@ -25,7 +25,11 @@ class SimpleSearchForm extends React.Component {
           toggle={this.toggle}
         >
           <DropdownToggle color="default" size="sm" caret>
-            Language
+            {this.props.currentLang
+              ? this.props.langList.find(
+                  ln => ln.codeName === this.props.currentLang
+                ).name
+              : 'Language'}
           </DropdownToggle>
           <DropdownMenu>
             {this.props.langList.map(ln => (
@@ -42,7 +46,7 @@ class SimpleSearchForm extends React.Component {
 function mapStateToProps(state) {
   return {
     langList: state.language.languages,
-    currentLang: state.language.mainLanguage
+    currentLang: state.searchForm.language
   };
 }
 
