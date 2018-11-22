@@ -28,11 +28,6 @@ class MainNavbar extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink className="nav-link" to="/search">
-                  Advance Search
-                </NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink className="nav-link" to="/chapters">
                   Chapters
                 </NavLink>
