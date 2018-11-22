@@ -1,17 +1,23 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reducers from './reducers';
 
-const midlewares = [];
+const context = React.createContext();
 
-const Store = ({ children, initState = {} }) => {
-  const store = createStore(
-    reducers,
-    initState,
-    applyMiddleware(...midlewares)
-  );
-  return <Provider store={store}>{children}</Provider>;
-};
+export class Provider extends React.Component {
+  state = {
+    languages: [
+      { codeName: 'ar', name: 'Arabic' },
+      { codeName: 'en', name: 'English' },
+      { codeName: 'si', name: 'Sinhala' },
+      { codeName: 'ta', name: 'Tamil' }
+    ]
+  };
+  render() {
+    return (
+      <context.Provider value={this.state.languages}>
+        {this.props.children}
+      </context.Provider>
+    );
+  }
+}
 
-export default Store;
+export const Consumer = context.Consumer;

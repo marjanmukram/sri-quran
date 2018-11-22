@@ -10,56 +10,53 @@ import {
   Input,
   Form
 } from 'reactstrap';
+import { Consumer } from '../../store';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { changeLang, changeTerm } from '../../store/actions/formActions';
 
 class SimpleSearchForm extends React.Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    ln: null,
+    sw: ''
   };
   toggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
   render() {
-    const {
-      currentLang,
-      langList,
-      searchTerm,
-      changeLang,
-      changeTerm
-    } = this.props;
+    const { ln, sw, isOpen } = this.state;
     return (
       <Form onSubmit={e => e.preventDefault()}>
         <InputGroup>
           <InputGroupButtonDropdown
             addonType="prepend"
-            isOpen={this.state.isOpen}
+            isOpen={isOpen}
             toggle={this.toggle}
           >
             <DropdownToggle color="default" size="sm" caret>
-              {currentLang
-                ? langList.find(ln => ln.codeName === currentLang).name
-                : 'Language'}
+              {ln ? ln.name : 'Language'}
             </DropdownToggle>
             <DropdownMenu>
-              {langList.map(ln => (
-                <DropdownItem
-                  onClick={() => changeLang(ln.codeName)}
-                  key={ln.codeName}
-                >
-                  {ln.name}
-                </DropdownItem>
-              ))}
+              <Consumer>
+                {value =>
+                  value.map(ln => (
+                    <DropdownItem
+                      onClick={() => this.setState({ ln })}
+                      key={ln.codeName}
+                    >
+                      {ln.name}
+                    </DropdownItem>
+                  ))
+                }
+              </Consumer>
             </DropdownMenu>
           </InputGroupButtonDropdown>
           <Input
             placeholder="Type search words"
             bsSize="sm"
-            onChange={e => changeTerm(e.target.value)}
-            value={searchTerm}
+            onChange={e => this.setState({ sw: e.target.value })}
+            value={sw}
           />
           <InputGroupAddon addonType="append">
             <Button type="submit" size="sm" color="default">
@@ -72,25 +69,4 @@ class SimpleSearchForm extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    langList: state.language.languages,
-    currentLang: state.searchForm.language,
-    searchTerm: state.searchForm.term
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      changeLang,
-      changeTerm
-    },
-    dispatch
-  );
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SimpleSearchForm);
+export default SimpleSearchForm;
