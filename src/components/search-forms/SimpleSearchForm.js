@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import AdvanceSearchOption from './AdvanceSearchOption';
 import {
   InputGroup,
@@ -19,21 +20,38 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 class SimpleSearchForm extends React.Component {
   state = {
     isOpen: false,
-    ln: null,
-    sw: ''
+    form: {
+      ln: null,
+      sw: '',
+      chapter: '0',
+      verOne: '0',
+      verTwo: '0'
+    }
   };
-  toggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+
+  updateFormData = updateVal => {
+    this.setState({ form: { ...this.state.form, ...updateVal } });
   };
+
   render() {
-    const { ln, sw, isOpen } = this.state;
+    const {
+      form: { ln, sw, chapter, verOne, verTwo },
+      isOpen
+    } = this.state;
     return (
-      <Form onSubmit={e => e.preventDefault()}>
+      <Form
+        onSubmit={e => {
+          e.preventDefault();
+          this.props.history.push(
+            `/search/${ln.codeName}/${sw.split(' ').join('-')}`
+          );
+        }}
+      >
         <InputGroup>
           <InputGroupButtonDropdown
             addonType="prepend"
             isOpen={isOpen}
-            toggle={this.toggle}
+            toggle={() => this.setState({ isOpen: !this.state.isOpen })}
           >
             <DropdownToggle color="default" size="sm" caret>
               {ln ? ln.name : 'Language'}
@@ -43,7 +61,7 @@ class SimpleSearchForm extends React.Component {
                 {value =>
                   value.map(ln => (
                     <DropdownItem
-                      onClick={() => this.setState({ ln })}
+                      onClick={e => this.updateFormData({ ln })}
                       key={ln.codeName}
                     >
                       {ln.name}
@@ -56,11 +74,14 @@ class SimpleSearchForm extends React.Component {
           <Input
             placeholder="Type search words"
             bsSize="sm"
-            onChange={e => this.setState({ sw: e.target.value })}
+            onChange={e => this.updateFormData({ sw: e.target.value })}
             value={sw}
           />
           <InputGroupAddon addonType="append">
-            <AdvanceSearchOption />
+            <AdvanceSearchOption
+              update={this.updateFormData}
+              data={{ chapter, verOne, verTwo }}
+            />
           </InputGroupAddon>
           <InputGroupAddon addonType="append">
             <Button type="submit" size="sm" color="default">
@@ -73,4 +94,4 @@ class SimpleSearchForm extends React.Component {
   }
 }
 
-export default SimpleSearchForm;
+export default withRouter(SimpleSearchForm);

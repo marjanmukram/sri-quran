@@ -14,13 +14,14 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 
 class AdvanceSearchOption extends React.Component {
   state = {
-    isAdvance: false,
-    chapter: '0',
-    verOne: '0',
-    verTwo: '0'
+    isAdvance: false
   };
   render() {
-    const { isAdvance, chapter, verOne, verTwo } = this.state;
+    const { isAdvance } = this.state;
+    const {
+      update,
+      data: { chapter, verOne, verTwo }
+    } = this.props;
     return (
       <React.Fragment>
         <Button
@@ -48,9 +49,10 @@ class AdvanceSearchOption extends React.Component {
                   value={chapter}
                   onChange={e => {
                     if (e.target.value === '0')
-                      this.setState({ verOne: '0', verTwo: '0' });
-                    this.setState({ chapter: e.target.value });
+                      update({ chapter: '0', verOne: '0', verTwo: '0' });
+                    else update({ chapter: e.target.value });
                   }}
+                  name="chapter"
                   bsSize="sm"
                   type="select"
                 >
@@ -66,9 +68,11 @@ class AdvanceSearchOption extends React.Component {
                 <Input
                   disabled={chapter === '0'}
                   onChange={e => {
-                    if (e.target.value === '0') this.setState({ verTwo: '0' });
-                    this.setState({ verOne: e.target.value });
+                    if (e.target.value === '0')
+                      update({ verOne: '0', verTwo: '0' });
+                    else update({ verOne: e.target.value });
                   }}
+                  name="verOne"
                   bsSize="sm"
                   type="select"
                   value={verOne}
@@ -87,7 +91,8 @@ class AdvanceSearchOption extends React.Component {
                   value={verTwo}
                   bsSize="sm"
                   type="select"
-                  onChange={e => this.setState({ verTwo: e.target.value })}
+                  onChange={e => update({ verTwo: e.target.value })}
+                  name="verTwo"
                 >
                   <option value="0">Empty</option>
                   <option value="1">1</option>
