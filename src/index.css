@@ -1,3 +1,15 @@
 .popover {
   min-width: 350px;
 }
+
+.opt-btns * {
+  cursor: pointer;
+}
+
+.opt-btns svg {
+  margin-right: 5px;
+}
+
+.opt-btns .dropdown {
+  display: inline;
+}
