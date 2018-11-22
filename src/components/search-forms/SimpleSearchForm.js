@@ -1,4 +1,5 @@
 import React from 'react';
+import AdvanceSearchOption from './AdvanceSearchOption';
 import {
   InputGroup,
   InputGroupButtonDropdown,
@@ -58,6 +59,9 @@ class SimpleSearchForm extends React.Component {
             onChange={e => this.setState({ sw: e.target.value })}
             value={sw}
           />
+          <InputGroupAddon addonType="append">
+            <AdvanceSearchOption />
+          </InputGroupAddon>
           <InputGroupAddon addonType="append">
             <Button type="submit" size="sm" color="default">
               <FontAwesomeIcon icon={faSearch} />
