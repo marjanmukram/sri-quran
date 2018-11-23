@@ -17,16 +17,34 @@ class Results extends React.Component {
       {
         chapId: 0,
         verId: 0,
-        verse:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.',
-        lns: ['en']
+        verses: [
+          {
+            ln: 'en',
+            verse:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.'
+          },
+          {
+            ln: 'si',
+            verse:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.'
+          }
+        ]
       },
       {
-        chapId: 1,
-        verId: 0,
-        verse:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.',
-        lns: ['en']
+        chapId: 0,
+        verId: 1,
+        verses: [
+          {
+            ln: 'en',
+            verse:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.'
+          },
+          {
+            ln: 'si',
+            verse:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.'
+          }
+        ]
       }
     ]
   };
