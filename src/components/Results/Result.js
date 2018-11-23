@@ -17,14 +17,22 @@ import SMediaShare from './SMediaShare';
 import LangDrop from './LangDrop';
 import PlayAudio from './PlayAudio';
 
-const Result = ({ ver: { chapId, verId, verses } }) => {
+const Result = ({
+  id,
+  ver: { chapId, verId, verses },
+  toggleSingleLngResult
+}) => {
   return (
     <div className="card p-2 my-1 border-0 bg-light">
       <div className="row">
         <div className="col-sm-2">
           <div className="opt-btns">
             <PlayAudio />
-            <LangDrop lns={verses.map(ver => ver.ln)} />
+            <LangDrop
+              id={id}
+              lns={verses.map(ver => ver.ln)}
+              toggleSingleLngResult={toggleSingleLngResult}
+            />
             <SMediaShare />
           </div>
           {chapId} - {verId}
