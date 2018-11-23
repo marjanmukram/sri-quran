@@ -15,6 +15,7 @@ class Results extends React.Component {
     },
     resBody: [
       {
+        id: 1,
         chapId: 0,
         verId: 0,
         verses: [
@@ -31,6 +32,7 @@ class Results extends React.Component {
         ]
       },
       {
+        id: 2,
         chapId: 0,
         verId: 1,
         verses: [
@@ -48,13 +50,16 @@ class Results extends React.Component {
       }
     ]
   };
+
+  removeSingleLngResult = lnCode => {};
+
   render() {
     const { resHead, resBody } = this.state;
     // const { ln, sw } = this.props.match.params;
     return (
       <div className="container-fluid">
         {resBody.map(r => (
-          <Result ver={r} key={`${r.chapId}-${r.verId}`} />
+          <Result ver={r} key={r.id} />
         ))}
       </div>
     );
