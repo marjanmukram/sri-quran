@@ -13,7 +13,7 @@ import { faCheckSquare, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 import { Consumer } from '../../../store';
 
-const LangDrop = ({ id, lns, toggleSingleLngResult, ...rest }) => {
+const LangDrop = ({ id, lns, clicked, ...rest }) => {
   return (
     <UncontrolledDropdown>
       <DropdownToggle tag="span" size="sm" {...rest}>
@@ -28,7 +28,7 @@ const LangDrop = ({ id, lns, toggleSingleLngResult, ...rest }) => {
                 return (
                   <DropdownItem
                     key={ln.codeName}
-                    onClick={e => toggleSingleLngResult(id, ln.codeName)}
+                    onClick={e => clicked(id, ln.codeName)}
                   >
                     <FontAwesomeIcon icon={!isLn ? faSquare : faCheckSquare} />
                     {ln.name}

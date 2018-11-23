@@ -18,7 +18,7 @@ const Result = ({
             <LangDrop
               id={id}
               lns={verses.map(ver => ver.ln)}
-              toggleSingleLngResult={toggleSingleLngResult}
+              clicked={toggleSingleLngResult}
             />
             <SMediaShare />
           </div>

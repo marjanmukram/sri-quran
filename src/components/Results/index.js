@@ -5,7 +5,7 @@ import LangDrop from './result-body/LangDrop';
 
 class Results extends React.Component {
   state = {
-    lns: ['si', 'en'],
+    lns: ['en'],
     resHead: {
       ln: null,
       sw: '',
@@ -26,11 +26,6 @@ class Results extends React.Component {
             ln: 'en',
             verse:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.'
-          },
-          {
-            ln: 'si',
-            verse:
-              'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.'
           }
         ]
       },
@@ -43,26 +38,39 @@ class Results extends React.Component {
             ln: 'en',
             verse:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.'
-          },
-          {
-            ln: 'si',
-            verse:
-              'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eligendi illo fugit doloremque laboriosam quibusdam ipsa veritatis ut ratione libero officiis debitis ullam nulla eaque. Ullam, ex. Itaque, delectus quam.'
           }
         ]
       }
     ]
   };
 
-  toggleSingleLngResult = (id, lnCode) => {
+  toggleAllLngResult = (id, lnCode) => {
+    const tempLns = [...this.state.lns];
+    const lnIndex = this.state.lns.indexOf(lnCode);
+    let forceTo = 'remove';
+    if (lnIndex === -1) {
+      forceTo = 'add';
+      tempLns.push(lnCode);
+    } else {
+      tempLns.splice(lnIndex, 1);
+    }
+    this.state.resBody.forEach(res =>
+      this.toggleSingleLngResult(res.id, lnCode, forceTo)
+    );
+    this.setState({ lns: tempLns });
+  };
+
+  toggleSingleLngResult = (id, lnCode, forceTo) => {
     const tempRes = [...this.state.resBody];
     const ver = tempRes.find(v => v.id === id);
     const lnVer = ver.verses.find(v => v.ln === lnCode);
     if (lnVer) {
+      if (forceTo === 'add') return;
       const verIndex = tempRes.indexOf(ver);
       const lnVerIndex = ver.verses.indexOf(lnVer);
       tempRes[verIndex].verses.splice(lnVerIndex, 1);
     } else {
+      if (forceTo === 'remove') return;
       const gotFromApi = {
         ln: lnCode,
         verse:
@@ -79,7 +87,10 @@ class Results extends React.Component {
         <div className="container-fluid">
           <div className="navbar-nav">
             <div className="nav-item mn-ln border p-0 btn btn-sm btn-block mr-2 mb-1">
-              <LangDrop lns={this.state.lns} toggleSingleLngResult={() => {}} />
+              <LangDrop
+                lns={this.state.lns}
+                clicked={this.toggleAllLngResult}
+              />
             </div>
             <div className="nav-item form-inline">
               <audio src="./mp3" />
