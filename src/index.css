@@ -2,14 +2,20 @@
   min-width: 350px;
 }
 
-.opt-btns * {
+.opt-btns *,
+.dropdown {
   cursor: pointer;
 }
 
-.opt-btns svg {
+svg {
   margin-right: 5px;
 }
 
 .opt-btns .dropdown {
   display: inline;
+}
+
+.mn-ln span {
+  display: block;
+  padding: 3px 10px;
 }
