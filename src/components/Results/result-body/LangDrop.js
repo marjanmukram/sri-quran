@@ -11,12 +11,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquare } from '@fortawesome/free-regular-svg-icons';
 import { faCheckSquare, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
-import { Consumer } from '../../store';
+import { Consumer } from '../../../store';
 
-const LangDrop = ({ id, lns, toggleSingleLngResult }) => {
+const LangDrop = ({ id, lns, toggleSingleLngResult, ...rest }) => {
   return (
     <UncontrolledDropdown>
-      <DropdownToggle tag="span" size="sm">
+      <DropdownToggle tag="span" size="sm" {...rest}>
         <FontAwesomeIcon icon={faGlobe} />
       </DropdownToggle>
       <Consumer>

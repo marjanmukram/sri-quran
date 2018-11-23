@@ -1,8 +1,11 @@
 import React from 'react';
-import Result from './Result';
+import Result from './result-body/Result';
+
+import LangDrop from './result-body/LangDrop';
 
 class Results extends React.Component {
   state = {
+    lns: ['si', 'en'],
     resHead: {
       ln: null,
       sw: '',
@@ -70,19 +73,63 @@ class Results extends React.Component {
     this.setState({ resBody: tempRes });
   };
 
+  renderResNav() {
+    return (
+      <div className="navbar bg-light navbar-light navbar-expand-sm">
+        <div className="container-fluid">
+          <div className="navbar-nav">
+            <div className="nav-item mn-ln border p-0 btn btn-sm btn-block mr-2 mb-1">
+              <LangDrop lns={this.state.lns} toggleSingleLngResult={() => {}} />
+            </div>
+            <div className="nav-item form-inline">
+              <audio src="./mp3" />
+              <select
+                name="recitator"
+                id="recitator"
+                className="custom-select custom-select-sm"
+              >
+                <option value="Alafasy" disabled={true}>
+                  Choose recitator
+                </option>
+                <option value="ElGhamidi">Saad El Galmidi</option>
+                <option value="Soudais">Abderrahman Al Soudais</option>
+                <option value="Alafasy">Mishary Rashid Al-Afassy</option>
+                <option value="Al-Ajmy">Ahmad Al-Ajmy</option>
+                <option value="Al-Hussary">Al-Hussary</option>
+                <option value="Basfar">Abdallah Ali Basfar</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const { resHead, resBody } = this.state;
     // const { ln, sw } = this.props.match.params;
     return (
       <div className="container-fluid">
-        {resBody.map(r => (
-          <Result
-            id={r.id}
-            ver={r}
-            key={r.id}
-            toggleSingleLngResult={this.toggleSingleLngResult}
-          />
-        ))}
+        <div className="card my-3">
+          <div className="card-header text-center text-info">
+            Your request is <b>'{resHead.sw}'</b> in chapter{' '}
+            <b>
+              '{resHead.chapter}'[{resHead.verOne}-{resHead.verTwo}]
+            </b>{' '}
+            in <b>'{resHead.ln}'</b> quran translation
+          </div>
+          {this.renderResNav()}
+          <div className="card-body">
+            {resBody.map(r => (
+              <Result
+                id={r.id}
+                ver={r}
+                key={r.id}
+                toggleSingleLngResult={this.toggleSingleLngResult}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,18 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faPlay,
-  faGlobe,
-  faCheckSquare
-} from '@fortawesome/free-solid-svg-icons';
-import {
-  UncontrolledDropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle
-} from 'reactstrap';
 
-import { faSquare } from '@fortawesome/free-regular-svg-icons';
 import SMediaShare from './SMediaShare';
 import LangDrop from './LangDrop';
 import PlayAudio from './PlayAudio';
