@@ -19,3 +19,17 @@ svg {
   display: block;
   padding: 3px 10px;
 }
+
+.chapters * {
+  text-decoration: none !important;
+}
+
+.chapters .border:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chapters .badge {
+  margin: 2px 5px;
+}
